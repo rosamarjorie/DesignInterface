@@ -3,14 +3,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #f3e5f5, #e1bee7); /* Roxo claro */
+    background: linear-gradient(to right, #e3f2fd, #bbdefb);
     color: #333;
     text-align: center;
 }
 
-/* Cabeçalho com tons de roxo */
+/* Cabeçalho mais moderno */
 header {
-    background: linear-gradient(135deg, #6a1b9a, #8e24aa); /* Roxo escuro para médio */
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -40,7 +40,7 @@ header nav a {
 
 header nav a:hover {
     background-color: #ffeb3b;
-    color: #6a1b9a;
+    color: #0d47a1;
 }
 
 /* Conteúdo principal */
@@ -49,12 +49,12 @@ main {
 }
 
 main h1 {
-    color: #6a1b9a;
+    color: #0d47a1;
 }
 
 /* Rodapé */
 footer {
-    background-color: #f3e5f5; /* Roxo claro suave */
+    background-color: #eeeeee;
     padding: 15px;
     margin-top: 30px;
     font-size: 0.9em;
