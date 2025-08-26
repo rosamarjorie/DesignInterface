@@ -3,18 +3,17 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #ede7f6, #d1c4e9); /* tons de roxo claro */
+    background-color: #ffffff; /* fundo branco */
     color: #2e2e2e;
     text-align: center;
 }
 
-/* Cabeçalho mais moderno */
+/* Cabeçalho */
 header {
-    background: linear-gradient(135deg, #6a1b9a, #8e24aa); /* roxo mais vivo */
+    background-color: #6a1b9a; /* roxo intenso */
     color: white;
     padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 header h2 {
@@ -29,18 +28,21 @@ header nav {
 
 header nav a {
     display: inline-block;
-    color: #ce93d8; /* lilás */
+    color: #ffffff;
+    background-color: transparent;
     margin: 0 12px;
     text-decoration: none;
     font-weight: bold;
     padding: 6px 14px;
+    border: 2px solid transparent;
     border-radius: 6px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 header nav a:hover {
-    background-color: #ce93d8;
-    color: #4a148c;
+    background-color: white;
+    color: #6a1b9a;
+    border-color: #6a1b9a;
 }
 
 /* Conteúdo principal */
@@ -53,16 +55,17 @@ main {
 
 main h1 {
     color: #6a1b9a;
+    margin-bottom: 20px;
 }
 
 /* Rodapé */
 footer {
-    background-color: #f0f0f0;
+    background-color: #f8f8f8;
     padding: 15px;
     margin-top: 30px;
     font-size: 0.9em;
     color: #555;
-    box-shadow: 0 -3px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.1);
 }
 
 /* Galeria de carros */
@@ -80,7 +83,7 @@ footer {
     max-height: 150px;
     border-radius: 16px;
     object-fit: cover;
-    box-shadow: 0 6px 20px rgba(106, 27, 154, 0.3);
+    box-shadow: 0 6px 20px rgba(106, 27, 154, 0.25);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
