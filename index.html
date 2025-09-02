@@ -6,11 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agência de Viagens</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        header {
+            background: url('https://images.unsplash.com/photo-1502920917128-1aa500764b7a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        header h1, header p, header nav {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slogan {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-top: 10px;
+            color: #ffe082;
+        }
+
+        .destinos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .destinos img {
+            width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .destinos img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
+<header>
     <h1>✈️ Rota dos Sonhos</h1>
     <p class="slogan">Descubra novos destinos. Viva novas histórias.</p>
     <nav>
@@ -21,9 +69,8 @@
     </nav>
 </header>
 
-
-   <main>
-    <h1>Bem-vindo à Rota dos Sonhos </h1>
+<main>
+    <h1>🌍 Bem-vindo à Rota dos Sonhos</h1>
     <p>Explore os melhores destinos para suas férias, aventuras ou viagens românticas.</p>
 
     <div class="destinos">
@@ -33,11 +80,9 @@
     </div>
 </main>
 
-   <footer>
+<footer>
     <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
 </footer>
 
-
 </body>
-
 </html>
