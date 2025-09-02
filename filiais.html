@@ -2,10 +2,92 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Locadora IFPR - Filiais</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e6d0f7, #ffd9b3); /* roxo claro e laranja pastel */
+            color: #4a148c; /* roxo escuro */
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ab47bc, #ff9800); /* roxo para laranja */
+            color: white;
+            padding: 60px 20px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        header h2,
+        header nav {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #ffd180;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #ffd180;
+            color: #6a1b9a; /* roxo escuro */
+        }
+
+        main h1 {
+            color: #6a1b9a;
+            margin-top: 30px;
+        }
+
+        .filiais {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px auto 50px;
+            max-width: 900px;
+        }
+
+        .filial {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            color: #4a148c;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .filial:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: #ffd9b3;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #4a148c;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
 
 <body>
@@ -13,7 +95,7 @@
     <!-- Cabeçalho -->
     <header>
         <h2>Locadora IFPR</h2>
-        <nav>
+        <nav> pode arrumar conforme o meu site que eu mandei, adaptar para o meu codigo
             <a href="index.html">Início</a>
             <a href="filiais.html">Filiais</a>
             <a href="#">Contato</a>
