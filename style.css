@@ -3,14 +3,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #f3e5f5, #fbe9e7); /* roxo claro para laranja claro */
+    background: linear-gradient(to right, #f3e5f5, #ffe0b2);
     color: #333;
     text-align: center;
 }
 
-/* Cabeçalho com tema roxo */
+/* Cabeçalho mais moderno */
 header {
-    background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+    background: linear-gradient(135deg, #6a1b9a, #8e24aa);
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -29,7 +29,7 @@ header nav {
 
 header nav a {
     display: inline-block;
-    color: #ffcc80; /* laranja claro */
+    color: #ffcc80;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -54,7 +54,7 @@ main h1 {
 
 /* Rodapé */
 footer {
-    background-color: #fbe9e7;
+    background-color: #ffe0b2;
     padding: 15px;
     margin-top: 30px;
     font-size: 0.9em;
@@ -62,7 +62,7 @@ footer {
     box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
 }
 
-/* Galeria de viagens (carros) */
+/* Galeria de carros */
 .carros {
     display: flex;
     justify-content: center;
@@ -83,7 +83,6 @@ footer {
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
-/* Filiais */
 .filiais {
     display: flex;
     justify-content: center;
