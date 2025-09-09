@@ -1,48 +1,167 @@
-.contato-form {
-    max-width: 400px;
-    margin: 20px auto 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: left;
-    color: #4a148c; /* roxo escuro para textos */
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-.contato-form label {
-    font-weight: bold;
-    color: #6a1b9a; /* roxo médio */
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Locadora IFPR - Contato</title>
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+    }
 
-.contato-form input,
-.contato-form textarea {
-    padding: 10px;
-    border: 1px solid #dbaaff; /* roxo claro */
-    border-radius: 8px;
-    font-size: 1em;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: border-color 0.3s;
-}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e6d0f7, #ffd9b3);
+      color: #4a148c;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-.contato-form input:focus,
-.contato-form textarea:focus {
-    border-color: #ff9800; /* laranja vibrante */
-    outline: none;
-}
+    header {
+      background: linear-gradient(135deg, #ab47bc, #ff9800);
+      color: white;
+      padding: 40px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
 
-.contato-form button {
-    background: #ab47bc; /* roxo vibrante do header */
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
+    header h2 {
+      margin: 0 0 15px;
+      font-weight: 700;
+    }
 
-.contato-form button:hover {
-    background: #ff9800; /* laranja do header */
-}
+    nav a {
+      color: #ffd180;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background-color: #ffd180;
+      color: #6a1b9a;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 30px 15px 60px;
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: left;
+    }
+
+    main h1 {
+      color: #6a1b9a;
+      margin-bottom: 25px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Estilo do formulário */
+    .contato-form {
+      background: rgba(255, 217, 179, 0.85);
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(171, 71, 188, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contato-form label {
+      font-weight: 700;
+      color: #6a1b9a;
+    }
+
+    .contato-form input,
+    .contato-form textarea {
+      padding: 12px;
+      border: 2px solid #dbaaff;
+      border-radius: 10px;
+      font-size: 1em;
+      width: 100%;
+      font-family: inherit;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      resize: vertical;
+    }
+
+    .contato-form input:focus,
+    .contato-form textarea:focus {
+      border-color: #ff9800;
+      outline: none;
+      box-shadow: 0 0 8px 2px #ff9800aa;
+    }
+
+    .contato-form button {
+      background-color: #ab47bc;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.15em;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .contato-form button:hover {
+      background-color: #ff9800;
+      box-shadow: 0 0 10px 3px #ff9800aa;
+    }
+
+    footer {
+      background-color: #ffd9b3;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #4a148c;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>Locadora IFPR</h2>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="filiais.html">Filiais</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Entre em Contato</h1>
+    <form class="contato-form" action="#" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Locadora IFPR - Todos os direitos reservados</p>
+  </footer>
+
+</body>
+
+</html>
