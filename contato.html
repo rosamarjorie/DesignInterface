@@ -2,33 +2,129 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locadora IFPR - Contato</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato - Rota dos Sonhos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e6d0f7, #ffd9b3);
+            color: #4a148c;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ab47bc, #ff9800);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        nav a {
+            color: #ffd180;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffd180;
+            color: #6a1b9a;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        main h1 {
+            color: #6a1b9a;
+            margin-bottom: 30px;
+        }
+
+        form.contato-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff5ee;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        form.contato-form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #6a1b9a;
+        }
+
+        form.contato-form input,
+        form.contato-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        form.contato-form button {
+            margin-top: 20px;
+            background-color: #ab47bc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        form.contato-form button:hover {
+            background-color: #8e24aa;
+        }
+
+        footer {
+            background-color: #ffd9b3;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #4a148c;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Cabeçalho -->
     <header>
-        <h2>Locadora IFPR</h2>
+        <h1>✈️ Rota dos Sonhos</h1>
+        <p class="slogan" style="font-style: italic; color: #ffd180; margin-top: 10px; font-size: 1.3em;">
+            Descubra novos destinos. Viva novas histórias.
+        </p>
         <nav>
-            <a href="index.html">Início</a>
-            <a href="filiais.html">Filiais</a>
-            <a href="contato.html">Contato</a>
+            <a href="index.html">🏠 Início</a>
+            <a href="filiais.html">🌄 Destinos</a>
+            <a href="filiais.html">📦 Pacotes</a>
+            <a href="contato.html">📞 Contato</a>
         </nav>
     </header>
 
-    <!-- Conteúdo principal -->
     <main>
         <h1>Entre em Contato</h1>
         <form class="contato-form">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
 
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
 
             <label for="mensagem">Mensagem:</label>
             <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem"></textarea>
@@ -37,11 +133,9 @@
         </form>
     </main>
 
-    <!-- Rodapé -->
     <footer>
-        <p>&copy; 2025 Locadora IFPR - Todos os direitos reservados</p>
+        <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
     </footer>
-
 </body>
 
 </html>
