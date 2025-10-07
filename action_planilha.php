@@ -1,9 +1,9 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-  $url = "https://script.google.com/macros/s/AKfycbwFfHjTJxNLVEr7yP9yFuIPzU922B6v98yJnkLap-FYsZ8Yl0Eygze9a1D9pxn9StGzCPA/exec";
-
+  
+https://script.google.com/macros/s/AKfycbyCYpkT0Tv2ytfGrDhssr6FecbG3pS8n-fS0kr-lkYSlKheq9GvF2Ph9VrWBmypd2XZxg/exec
+ 
   $data = [
     "nome" => $_POST["nome"] ?? "",
     "email" => $_POST["email"] ?? "",
