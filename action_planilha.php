@@ -1,8 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  https://script.google.com/macros/s/AKfycbw4jFJDVac5E3A7MO_YTYVHMq0rYXZ6CKi1USPANTvzDj3PB9tzaqBMnK7bR2_6KkMaww/exec
-    
+ https://script.google.com/macros/s/AKfycbw4jFJDVac5E3A7MO_YTYVHMq0rYXZ6CKi1USPANTvzDj3PB9tzaqBMnK7bR2_6KkMaww/exec
     // Dados do formulário
     $data = [
         "nome" => $_POST["nome"] ?? "",
