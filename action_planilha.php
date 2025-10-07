@@ -1,29 +1,29 @@
+
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
- https://script.google.com/macros/s/AKfycbyfTHjjIXyNLE7VrP9yFuIPZu922BGv98yJnkLaP-FysZ8YNOgYzge9aIp9xn9StGzCPA/exec
-    // Dados do formulário
-    $data = [
-        "nome" => $_POST["nome"] ?? "",
-        "email" => $_POST["email"] ?? "",
-        "mensagem" => $_POST["mensagem"] ?? ""
-        // Adicione outros campos conforme necessário
-    ];
+  $url = "https://script.google.com/macros/s/AKfycbwFfHjTJxNLVEr7yP9yFuIPzU922B6v98yJnkLap-FYsZ8Yl0Eygze9a1D9pxn9StGzCPA/exec";
 
-    // Inicializa cURL
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  $data = [
+    "nome" => $_POST["nome"] ?? "",
+    "email" => $_POST["email"] ?? "",
+    "duvidas" => $_POST["duvidas"] ?? "",
+    "sugestoes" => $_POST["sugestoes"] ?? "",
+    "telefone" => $_POST["telefone"] ?? ""
+  ];
 
-    $response = curl_exec($ch);
-    curl_close($ch);
+  $ch = curl_init($url);
+  curl_setopt($ch, CURLOPT_POST, true);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    echo "<p>Dados enviados para a planilha com sucesso!</p>";
-    echo "<pre>".htmlspecialchars($response)."</pre>";
+  $response = curl_exec($ch);
+  curl_close($ch);
+
+  echo "<p>Dados enviados para a planilha com sucesso!</p>";
+  echo "<pre>" . htmlspecialchars($response) . "</pre>";
 
 } else {
-    echo "<p>Nenhum dado foi enviado.</p>";
+  echo "<p>Nenhum dado foi enviado.</p>";
 }
 ?>
-
