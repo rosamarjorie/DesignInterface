@@ -3,19 +3,105 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registros da Planilha</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e6d0f7, #ffd9b3); /* roxo claro e laranja pastel */
+            color: #4a148c; /* roxo escuro */
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ab47bc, #ff9800); /* roxo para laranja */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        header h2 {
+            font-size: 2em;
+        }
+
+        nav a {
+            color: #ffd180;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffd180;
+            color: #6a1b9a; /* roxo escuro */
+        }
+
+        main h1 {
+            color: #6a1b9a;
+            margin-top: 30px;
+        }
+
+        .info-msg {
+            font-size: 1.2em;
+            color: #6a1b9a;
+            margin-top: 20px;
+        }
+
+        .table-wrap {
+            margin: 30px auto;
+            max-width: 90%;
+            overflow-x: auto;
+        }
+
+        .dados-planilha {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .dados-planilha th,
+        .dados-planilha td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .dados-planilha th {
+            background-color: #ab47bc; /* roxo */
+            color: white;
+        }
+
+        .dados-planilha tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        footer {
+            background-color: #ffd9b3;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #4a148c;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <h2>Rota dos Sonhos</h2>
         <nav>
-            <a href="index.html">Início</a>
-            <a href="filiais.html">Filiais</a>
-            <a href="contato.html">Contato</a>
-            <a href="planilha.html" aria-current="page">Planilha</a>
+            <a href="index.html">🏠 Início</a>
+            <a href="filiais.html">🌄 Destinos</a>
+            <a href="contato.html">📞 Contato</a>
+            <a href="planilha.html" aria-current="page">📊 Planilha</a>
         </nav>
     </header>
 
