@@ -106,19 +106,63 @@
             <a href="planilha.html" aria-current="page">📊 Planilha</a>
         </nav>
     </header>
+    
+<main>
+  <h1>Bem-vindo à Rota dos Sonhos</h1>
+  <p>Explore os melhores destinos para suas férias, aventuras ou viagens românticas.</p>
 
-    <main>
-        <h1>🌍 Bem-vindo à Rota dos Sonhos</h1>
-        <p>Explore os melhores destinos para suas férias, aventuras ou viagens românticas.</p>
-      
-<div class="destinos">
-    <img src="https://ilhasmaldivas.com.br/wp-content/uploads/2022/05/ferias-nas-maldivas.jpg" alt="Praia paradisíaca nas Maldivas" />
-    <img src="https://palacepraia.com.br/wp-content/uploads/2021/10/viajar-de-aviao.jpeg" alt="Avião em voo, simbolizando viagem" />
-    <img src="https://static.independent.co.uk/2025/04/25/13/42/iStock-1498516775.jpg" alt="Vista aérea de destino famoso" />
-</div>
+  <div id="conteudo" class="conteudo-scroll">
+    <p>Carregando conteúdo...</p>
+  </div>
+</main>
 
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7nn7oJPW4OVLxyW7NpOwhVzkPi4yp9IYXGTkxk0KQY5wgHW1xjipiMA2jGB7cVVyY8g/exec"
+async function carregarConteudo() {
+  const container = document.getElementById('conteudo');
+  container.innerHTML = "<p>Carregando conteúdo...</p>";
 
-    </main>
+  try {
+    const res = await fetch(SCRIPT_URL);
+    const dados = await res.json();
+    container.innerHTML = '';
+
+    dados.forEach(item => {
+      const bloco = document.createElement('div');
+      bloco.className = 'bloco-item';
+
+      const titulo = document.createElement('h2');
+      titulo.textContent = item.Título || '';
+      bloco.appendChild(titulo);
+
+      const descricao = document.createElement('p');
+      descricao.textContent = item.Descrição || '';
+      bloco.appendChild(descricao);
+
+      if (item.Url && item.Url.startsWith('http')) {
+        if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
+          const img = document.createElement('img');
+          img.src = item.Url;
+          img.alt = item.Título || 'Imagem';
+          bloco.appendChild(img);
+        } else {
+          const link = document.createElement('a');
+          link.href = item.Url;
+          link.textContent = 'Ver mais';
+          bloco.appendChild(link);
+        }
+      }
+
+      container.appendChild(bloco);
+    });
+  } catch (err) {
+    container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
+  }
+}
+
+carregarConteudo();
+</script>
+
 
     <footer>
         <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
