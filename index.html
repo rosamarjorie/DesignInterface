@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -56,27 +57,24 @@
       font-size: 1.1em;
     }
 
-    /* Galeria superior - 3 imagens lado a lado */
+    /* Galeria vertical - imagens uma embaixo da outra */
     .galeria {
       display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      align-items: stretch;
+      flex-direction: column;
+      align-items: center;
       margin: 0;
       padding: 0;
     }
 
     .galeria img {
-      width: 33.333%;
-      height: 400px;
-      object-fit: cover;
-      margin: 0;
-      border: none;
-      padding: 0;
-      display: block;
+      width: auto;        /* mantém tamanho original */
+      height: auto;
+      max-width: 90%;     /* limita pra não ultrapassar a tela */
+      margin: 10px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
-    /* Blocos de conteúdo da planilha */
     .bloco-item {
       background-color: rgba(255, 255, 255, 0.85);
       border-radius: 12px;
@@ -119,10 +117,10 @@
     <h1>Bem-vindo à Rota dos Sonhos</h1>
     <p>Explore os melhores destinos para suas férias, aventuras ou viagens românticas.</p>
 
-    <!-- As 3 primeiras imagens da planilha vão aparecer aqui -->
+    <!-- As imagens da planilha aparecem aqui -->
     <section class="galeria" id="galeria"></section>
 
-    <!-- Demais conteúdos -->
+    <!-- Conteúdo abaixo -->
     <div id="conteudo" class="conteudo-scroll">
       <p>Carregando conteúdo...</p>
     </div>
@@ -141,19 +139,17 @@
         const dados = await res.json();
         conteudo.innerHTML = "";
 
-        // Pega as 3 primeiras imagens da planilha
-        const imagens = dados
-          .filter(item => item.Url && item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i))
-          .slice(0, 3);
-
-        imagens.forEach(item => {
-          const img = document.createElement('img');
-          img.src = item.Url;
-          img.alt = item.Título || "Imagem";
-          galeria.appendChild(img);
+        // Mostra todas as imagens da planilha, uma embaixo da outra
+        dados.forEach(item => {
+          if (item.Url && item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+            const img = document.createElement('img');
+            img.src = item.Url;
+            img.alt = item.Título || "Imagem";
+            galeria.appendChild(img);
+          }
         });
 
-        // Mostra o restante dos dados da planilha
+        // Mostra o restante dos dados (título e descrição)
         dados.forEach(item => {
           const bloco = document.createElement('div');
           bloco.className = 'bloco-item';
@@ -165,14 +161,6 @@
           const descricao = document.createElement('p');
           descricao.textContent = item.Descrição || '';
           bloco.appendChild(descricao);
-
-          // Adiciona imagem (se houver) nos blocos seguintes
-          if (item.Url && !imagens.includes(item)) {
-            const img = document.createElement('img');
-            img.src = item.Url;
-            img.alt = item.Título || "Imagem";
-            bloco.appendChild(img);
-          }
 
           conteudo.appendChild(bloco);
         });
