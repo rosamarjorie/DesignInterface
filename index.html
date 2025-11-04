@@ -2,171 +2,209 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Agência de Viagens</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #e6d0f7, #ffd9b3); /* roxo claro e laranja pastel */
-            color: #4a148c; /* roxo escuro */
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agência de Viagens</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e6d0f7, #ffd9b3); /* roxo claro e laranja pastel */
+      color: #4a148c; /* roxo escuro */
+      text-align: center;
+    }
 
-        header {
-            background: linear-gradient(135deg, #ab47bc, #ff9800); /* roxo para laranja */
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        }
+    header {
+      background: linear-gradient(135deg, #ab47bc, #ff9800); /* roxo para laranja */
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
 
-        header h1,
-        header p,
-        header nav {
-            position: relative;
-            z-index: 1;
-        }
+    header h1,
+    header p,
+    header nav {
+      position: relative;
+      z-index: 1;
+    }
 
-        .slogan {
-            font-size: 1.3em;
-            font-style: italic;
-            margin-top: 10px;
-            color: #ffd180; /* laranja claro */
-        }
+    .slogan {
+      font-size: 1.3em;
+      font-style: italic;
+      margin-top: 10px;
+      color: #ffd180; /* laranja claro */
+    }
 
-        nav a {
-            color: #ffd180;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    nav a {
+      color: #ffd180;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-        nav a:hover {
-            background-color: #ffd180;
-            color: #6a1b9a; /* roxo escuro */
-        }
+    nav a:hover {
+      background-color: #ffd180;
+      color: #6a1b9a; /* roxo escuro */
+    }
 
-        main h1 {
-            color: #6a1b9a;
-            margin-top: 30px;
-        }
+    main h1 {
+      color: #6a1b9a;
+      margin-top: 30px;
+    }
 
-        main p {
-            max-width: 600px;
-            margin: 10px auto 30px;
-            font-size: 1.1em;
-        }
+    main p {
+      max-width: 600px;
+      margin: 10px auto 30px;
+      font-size: 1.1em;
+    }
 
-        .destinos {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
+    /* ---------- GALERIA DE IMAGENS FIXAS ---------- */
+    .galeria-fixa {
+      margin-top: 40px;
+    }
 
-        .destinos img {
-            width: 300px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .galeria-fixa h2 {
+      color: #6a1b9a;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
 
-        .destinos img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-        }
+    .destinos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
 
-        footer {
-            background-color: #ffd9b3;
-            padding: 15px;
-            font-size: 0.9em;
-            color: #4a148c;
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
-        }
-    </style>
+    .destinos img {
+      width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .destinos img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    /* ---------- CONTEÚDO CARREGADO DA PLANILHA ---------- */
+    .bloco-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
+    .bloco-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #ffd9b3;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #4a148c;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <h1>✈️ Rota dos Sonhos</h1>
-        <p class="slogan">Descubra novos destinos. Viva novas histórias.</p>
-        <nav>
-            <a href="index.html">🏠 Início</a>
-            <a href="filiais.html">🌄 Destinos</a>
-            <a href="filiais.html">📦 Pacotes</a>
-            <a href="filiais.html">📞 Contato</a>
-            <a href="planilha.html" aria-current="page">📊 Planilha</a>
-        </nav>
-    </header>
-    
-<main>
-  <h1>Bem-vindo à Rota dos Sonhos</h1>
-  <p>Explore os melhores destinos para suas férias, aventuras ou viagens românticas.</p>
+  <header>
+    <h1>✈️ Rota dos Sonhos</h1>
+    <p class="slogan">Descubra novos destinos. Viva novas histórias.</p>
+    <nav>
+      <a href="index.html">🏠 Início</a>
+      <a href="filiais.html">🌄 Destinos</a>
+      <a href="filiais.html">📦 Pacotes</a>
+      <a href="filiais.html">📞 Contato</a>
+      <a href="planilha.html" aria-current="page">📊 Planilha</a>
+    </nav>
+  </header>
 
-  <div id="conteudo" class="conteudo-scroll">
-    <p>Carregando conteúdo...</p>
-  </div>
-</main>
+  <main>
+    <h1>Bem-vindo à Rota dos Sonhos</h1>
+    <p>Explore os melhores destinos para suas férias, aventuras ou viagens românticas.</p>
 
-<script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-zT8fkkJ7k7Y8LgBC0r00WofAbHvGEe4VwnYBHLV01yd7XcgZ6iZMdq1PjK7xHgOvoA/exec"
-async function carregarConteudo() {
-  const container = document.getElementById('conteudo');
-  container.innerHTML = "<p>Carregando conteúdo...</p>";
+    <!-- ===== GALERIA DE 3 IMAGENS FIXAS ===== -->
+    <section class="galeria-fixa">
+      <h2>Destinos em Destaque</h2>
+      <div class="destinos">
+        <img src="https://palacaprata.com.br/wp-content/uploads/2021/10/viagem-de-aviao.jpg" alt="Avião">
+        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/08/29/10/eiffel-tower-paris.jpg" alt="Paris">
+        <img src="https://d1bvpoagx8hqbg.cloudfront.net/originals/pacotes-de-viagem-para-as-maldivas-b3c5e4b5e4b01f9b.jpg" alt="Maldivas">
+      </div>
+    </section>
 
-  try {
-    const res = await fetch(SCRIPT_URL);
-    const dados = await res.json();
-    container.innerHTML = '';
+    <!-- ===== CONTEÚDO CARREGADO DA PLANILHA ===== -->
+    <div id="conteudo" class="conteudo-scroll">
+      <p>Carregando conteúdo...</p>
+    </div>
+  </main>
 
-    dados.forEach(item => {
-      const bloco = document.createElement('div');
-      bloco.className = 'bloco-item';
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-zT8fkkJ7k7Y8LgBC0r00WofAbHvGEe4VwnYBHLV01yd7XcgZ6iZMdq1PjK7xHgOvoA/exec";
 
-      const titulo = document.createElement('h2');
-      titulo.textContent = item.Título || '';
-      bloco.appendChild(titulo);
+    async function carregarConteudo() {
+      const container = document.getElementById('conteudo');
+      container.innerHTML = "<p>Carregando conteúdo...</p>";
 
-      const descricao = document.createElement('p');
-      descricao.textContent = item.Descrição || '';
-      bloco.appendChild(descricao);
+      try {
+        const res = await fetch(SCRIPT_URL);
+        const dados = await res.json();
+        container.innerHTML = '';
 
-      if (item.Url && item.Url.startsWith('http')) {
-        if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
-          const img = document.createElement('img');
-          img.src = item.Url;
-          img.alt = item.Título || 'Imagem';
-          bloco.appendChild(img);
-        } else {
-          const link = document.createElement('a');
-          link.href = item.Url;
-          link.textContent = 'Ver mais';
-          bloco.appendChild(link);
-        }
+        dados.forEach(item => {
+          const bloco = document.createElement('div');
+          bloco.className = 'bloco-item';
+
+          const titulo = document.createElement('h2');
+          titulo.textContent = item.Título || '';
+          bloco.appendChild(titulo);
+
+          const descricao = document.createElement('p');
+          descricao.textContent = item.Descrição || '';
+          bloco.appendChild(descricao);
+
+          if (item.Url && item.Url.startsWith('http')) {
+            if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
+              const img = document.createElement('img');
+              img.src = item.Url;
+              img.alt = item.Título || 'Imagem';
+              bloco.appendChild(img);
+            } else {
+              const link = document.createElement('a');
+              link.href = item.Url;
+              link.textContent = 'Ver mais';
+              bloco.appendChild(link);
+            }
+          }
+
+          container.appendChild(bloco);
+        });
+      } catch (err) {
+        container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
       }
+    }
 
-      container.appendChild(bloco);
-    });
-  } catch (err) {
-    container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
-  }
-}
+    carregarConteudo();
+  </script>
 
-carregarConteudo();
-</script>
-
-
-    <footer>
-        <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
+  </footer>
 </body>
 
 </html>
