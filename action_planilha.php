@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
-$url = "https://script.google.com/macros/s/AKfycbwTRcqGk_ORJPgkl8UbWaNY0WtsJiuOOV1b8p0fyEybSNaw3Gern-lmPrZhfZC6oKU-6g/exec";
+$url = "https://script.google.com/macros/s/AKfycbzKEwuOPEIZ5PueyfgHIRwJTTwPJAENjD7SROHI5J0g7We6t4Nwxz8HN_t_vickpy4X/exec";
  
   $data = [
     "nome" => $_POST["nome"] ?? "",
