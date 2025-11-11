@@ -114,56 +114,58 @@
     <footer>
         <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
     </footer>
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKEwuOPEIZ5PueyfgHIRwJTTwPJAENjD7SROHI5J0g7We6t4Nwxz8HN_t_vickpy4X/exec";
+    const msg = document.getElementById('mensagem');
+    const wrap = document.getElementById('table-wrap');
 
-    <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKEwuOPEIZ5PueyfgHIRwJTTwPJAENjD7SROHI5J0g7We6t4Nwxz8HN_t_vickpy4X/exec"
-            const msg = document.getElementById('mensagem');
-            const wrap = document.getElementById('table-wrap');
-            msg.textContent = 'Carregando dados...';
-            wrap.innerHTML = '';
+    async function carregar() {
+        msg.textContent = 'Carregando dados...';
+        wrap.innerHTML = '';
 
-            try {
-                const res = await fetch(SCRIPT_URL);
-                const dados = await res.json();
+        try {
+            const res = await fetch(SCRIPT_URL);
+            const dados = await res.json();
 
-                if (!dados.length) {
-                    msg.textContent = 'Nenhum registro encontrado.';
-                    return;
-                }
-
-                msg.textContent = '';
-                const table = document.createElement('table');
-                table.className = 'dados-planilha';
-
-                const thead = document.createElement('thead');
-                const trh = document.createElement('tr');
-                Object.keys(dados[0]).forEach(h => {
-                    const th = document.createElement('th');
-                    th.textContent = h;
-                    trh.appendChild(th);
-                });
-                thead.appendChild(trh);
-                table.appendChild(thead);
-
-                const tbody = document.createElement('tbody');
-                dados.forEach(obj => {
-                    const tr = document.createElement('tr');
-                    Object.values(obj).forEach(v => {
-                        const td = document.createElement('td');
-                        td.textContent = v;
-                        tr.appendChild(td);
-                    });
-                    tbody.appendChild(tr);
-                });
-                table.appendChild(tbody);
-                wrap.appendChild(table);
-            } catch (err) {
-                msg.textContent = 'Erro ao carregar: ' + err.message;
+            if (!dados.length) {
+                msg.textContent = 'Nenhum registro encontrado.';
+                return;
             }
+
+            msg.textContent = '';
+            const table = document.createElement('table');
+            table.className = 'dados-planilha';
+
+            // Cabeçalhos
+            const thead = document.createElement('thead');
+            const trh = document.createElement('tr');
+            Object.keys(dados[0]).forEach(h => {
+                const th = document.createElement('th');
+                th.textContent = h;
+                trh.appendChild(th);
+            });
+            thead.appendChild(trh);
+            table.appendChild(thead);
+
+            // Linhas de dados
+            const tbody = document.createElement('tbody');
+            dados.forEach(obj => {
+                const tr = document.createElement('tr');
+                Object.values(obj).forEach(v => {
+                    const td = document.createElement('td');
+                    td.textContent = v;
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+            table.appendChild(tbody);
+            wrap.appendChild(table);
+
+        } catch (err) {
+            msg.textContent = 'Erro ao carregar: ' + err.message;
         }
+    }
 
-        carregar();
-    </script>
-</body>
-
-</html>
+    // Chama a função ao carregar a página
+    carregar();
+</script>
