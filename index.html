@@ -139,14 +139,14 @@ async function carregarConteudo() {
       descricao.textContent = item.Descrição || '';
       bloco.appendChild(descricao);
 
-     if (item.Url && item.Url.startsWith('http')) {
+if (item.Url && item.Url.startsWith('http')) {
   const youtubeRegex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
 
   const match = item.Url.match(youtubeRegex);
   if (match) {
     const videoId = match[1];
     const iframe = document.createElement('iframe');
-    iframe.src = "https://youtu.be/so9nKJpDMEQ?si=KUAYlgKWBRbFw46B";
+    iframe.src = `https://www.youtube.com/embed/${videoId}`;
     iframe.height = "315";
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.setAttribute("allowfullscreen", true);
@@ -165,7 +165,6 @@ async function carregarConteudo() {
     bloco.appendChild(link);
   }
 }
-
 
       container.appendChild(bloco);
     });
