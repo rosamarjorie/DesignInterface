@@ -5,37 +5,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Agência de Viagens</title>
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #e6d0f7, #ffd9b3); /* roxo claro e laranja pastel */
-            color: #4a148c; /* roxo escuro */
+            background: linear-gradient(to right, #e6d0f7, #ffd9b3);
+            color: #4a148c;
             text-align: center;
+            transition: background 0.3s, color 0.3s;
         }
 
         header {
-            background: linear-gradient(135deg, #ab47bc, #ff9800); /* roxo para laranja */
+            background: linear-gradient(135deg, #ab47bc, #ff9800);
             color: white;
             padding: 60px 20px;
             text-align: center;
             position: relative;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        }
-
-        header h1,
-        header p,
-        header nav {
-            position: relative;
-            z-index: 1;
-        }
-
-        .slogan {
-            font-size: 1.3em;
-            font-style: italic;
-            margin-top: 10px;
-            color: #ffd180; /* laranja claro */
         }
 
         nav a {
@@ -50,7 +38,7 @@
 
         nav a:hover {
             background-color: #ffd180;
-            color: #6a1b9a; /* roxo escuro */
+            color: #6a1b9a;
         }
 
         main h1 {
@@ -91,6 +79,92 @@
             color: #4a148c;
             box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
         }
+
+        /* Área dos dados da planilha */
+        .conteudo-scroll {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #fff5ff;
+            border-radius: 10px;
+            border: 2px solid #d6a8ff;
+        }
+
+        .bloco-item {
+            background: white;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 10px;
+            border: 2px solid #d6a8ff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bloco-item h2 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+        }
+
+        /* ---------- Botão Toggle ---------- */
+        .tema-toggle {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            width: 50px;
+            height: 26px;
+            background: #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            transition: background 0.25s;
+        }
+
+        .tema-toggle .bolinha {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.25s;
+        }
+
+        /* ---------- TEMA ESCURO ---------- */
+        .tema-escuro {
+            background: #0f1720;
+            color: #e9eef5;
+        }
+
+        .tema-escuro header {
+            background: linear-gradient(135deg, #3b246b, #b45f00);
+        }
+
+        .tema-escuro footer {
+            background: #1c2530;
+            color: #ffffff;
+        }
+
+        .tema-escuro .conteudo-scroll {
+            background: #111821;
+            border-color: #2a3645;
+        }
+
+        .tema-escuro .bloco-item {
+            background: #1a2330;
+            border-color: #2a3645;
+        }
+
+        .tema-escuro .bloco-item h2 {
+            color: #8db0ff;
+        }
+
+        /* Toggle no modo escuro */
+        .tema-escuro .tema-toggle {
+            background: #374151;
+        }
+
+        .tema-escuro .tema-toggle .bolinha {
+            transform: translateX(24px);
+        }
     </style>
 </head>
 
@@ -98,6 +172,7 @@
     <header>
         <h1>✈️ Rota dos Sonhos</h1>
         <p class="slogan">Descubra novos destinos. Viva novas histórias.</p>
+
         <nav>
             <a href="index.html">🏠 Início</a>
             <a href="filiais.html">🌄 Destinos</a>
@@ -105,97 +180,103 @@
             <a href="filiais.html">📞 Contato</a>
             <a href="planilha.html" aria-current="page">📊 Planilha</a>
         </nav>
-      <div id="tema-toggle" class="tema-toggle">
-  <div class="bolinha"></div>
-</div>
+
+        <!-- Botão de tema -->
+        <div id="tema-toggle" class="tema-toggle">
+            <div class="bolinha"></div>
+        </div>
     </header>
-    
-<main>
-  <h1>Bem-vindo à Rota dos Sonhos</h1>
-  <p>Explore os melhores destinos para suas férias, aventuras ou viagens românticas.</p>
 
-  <div id="conteudo" class="conteudo-scroll">
-    <p>Carregando conteúdo...</p>
-  </div>
-</main>
+    <main>
+        <h1>Bem-vindo à Rota dos Sonhos</h1>
+        <p>Explore os melhores destinos para suas férias, aventuras ou viagens românticas.</p>
 
-<script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwIwv-5RuSABESxydVp7YCxJ7U3ctR60lK6waIju1vveHm-Bor8awuDQV_ScGimvUYOiw/exec"
-async function carregarConteudo() {
-  const container = document.getElementById('conteudo');
-  container.innerHTML = "<p>Carregando conteúdo...</p>";
+        <div id="conteudo" class="conteudo-scroll">
+            <p>Carregando conteúdo...</p>
+        </div>
+    </main>
 
-  try {
-    const res = await fetch(SCRIPT_URL);
-    const dados = await res.json();
-    container.innerHTML = '';
-
-    dados.forEach(item => {
-      const bloco = document.createElement('div');
-      bloco.className = 'bloco-item';
-
-      const titulo = document.createElement('h2');
-      titulo.textContent = item.Título || '';
-      bloco.appendChild(titulo);
-
-      const descricao = document.createElement('p');
-      descricao.textContent = item.Descrição || '';
-      bloco.appendChild(descricao);
-
-if (item.Url && item.Url.startsWith('http')) {
-  const youtubeRegex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
-
-  const match = item.Url.match(youtubeRegex);
-  if (match) {
-    const videoId = match[1];
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}`;
-    iframe.height = "315";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.setAttribute("allowfullscreen", true);
-    bloco.appendChild(iframe);
-  }
-  else if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
-    const img = document.createElement('img');
-    img.src = item.Url;
-    img.alt = item.Título || 'Imagem';
-    bloco.appendChild(img);
-  }
-  else {
-    const link = document.createElement('a');
-    link.href = item.Url;
-    link.textContent = 'Ver mais';
-    bloco.appendChild(link);
-  }
-}
-
-      container.appendChild(bloco);
-    });
-  } catch (err) {
-    container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
-  }
-}
-
-carregarConteudo();
-<script>
-  const toggle = document.getElementById("tema-toggle");
-  const body = document.body;
-
-  // Carregar tema salvo
-  let tema = localStorage.getItem("tema") || "tema-claro";
-  if (tema === "tema-escuro") body.classList.add("tema-escuro");
-
-  toggle.addEventListener("click", () => {
-    body.classList.toggle("tema-escuro");
-
-    const ativo = body.classList.contains("tema-escuro");
-    localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
-  });
-</script>
-    
     <footer>
         <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
     </footer>
-</body>
 
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwIwv-5RuSABESxydVp7YCxJ7U3ctR60lK6waIju1vveHm-Bor8awuDQV_ScGimvUYOiw/exec";
+
+        async function carregarConteudo() {
+            const container = document.getElementById('conteudo');
+            container.innerHTML = "<p>Carregando conteúdo...</p>";
+
+            try {
+                const res = await fetch(SCRIPT_URL);
+                const dados = await res.json();
+                container.innerHTML = "";
+
+                dados.forEach(item => {
+                    const bloco = document.createElement('div');
+                    bloco.className = 'bloco-item';
+
+                    const titulo = document.createElement('h2');
+                    titulo.textContent = item.Título || '';
+                    bloco.appendChild(titulo);
+
+                    const descricao = document.createElement('p');
+                    descricao.textContent = item.Descrição || '';
+                    bloco.appendChild(descricao);
+
+                    // imagens, vídeos e links
+                    if (item.Url && item.Url.startsWith('http')) {
+                        const youtubeRegex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
+                        const match = item.Url.match(youtubeRegex);
+
+                        if (match) {
+                            const iframe = document.createElement('iframe');
+                            iframe.src = `https://www.youtube.com/embed/${match[1]}`;
+                            iframe.height = "315";
+                            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                            iframe.setAttribute("allowfullscreen", true);
+                            bloco.appendChild(iframe);
+                        }
+                        else if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+                            const img = document.createElement('img');
+                            img.src = item.Url;
+                            img.alt = item.Título;
+                            img.style.width = "100%";
+                            img.style.borderRadius = "8px";
+                            bloco.appendChild(img);
+                        }
+                        else {
+                            const link = document.createElement('a');
+                            link.href = item.Url;
+                            link.textContent = "Ver mais";
+                            bloco.appendChild(link);
+                        }
+                    }
+
+                    container.appendChild(bloco);
+                });
+
+            } catch (err) {
+                container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
+            }
+        }
+
+        carregarConteudo();
+
+        // Script do botão de tema
+        const toggle = document.getElementById("tema-toggle");
+        const body = document.body;
+
+        let temaSalvo = localStorage.getItem("tema") || "claro";
+        if (temaSalvo === "escuro") body.classList.add("tema-escuro");
+
+        toggle.addEventListener("click", () => {
+            body.classList.toggle("tema-escuro");
+
+            const modo = body.classList.contains("tema-escuro") ? "escuro" : "claro";
+            localStorage.setItem("tema", modo);
+        });
+    </script>
+
+</body>
 </html>
