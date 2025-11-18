@@ -234,50 +234,51 @@ footer {
   margin: 6px 0;
 }
 
-/* Toggle – versão roxa chamativa */
+/* 🔮 Toggle – versão roxa chamativa */
 .tema-toggle {
   position: absolute;
   top: 15px;
   right: 20px;
   width: 55px;
   height: 28px;
-  background: #9c27b0;          /* ROXO VIBRANTE */
+  background: #9c27b0;            /* roxo vibrante */
   border-radius: 20px;
   cursor: pointer;
   padding: 3px;
   display: flex;
   align-items: center;
   transition: background 0.25s, box-shadow 0.25s;
-  box-shadow: 0 0 8px #ba68c8;   /* brilho lilás */
+  box-shadow: 0 0 8px #ba68c8;     /* brilho lilás */
 }
 
 .tema-toggle .bolinha {
   width: 22px;
   height: 22px;
-  background: white;
+  background: #f3e5f5;            /* lilás claro */
   border-radius: 50%;
   transition: transform 0.25s, background 0.25s;
   box-shadow: 0 0 6px rgba(255,255,255,0.8);
 }
-/* Tema escuro harmônico */
+
+/* 🌙 Tema escuro harmônico */
 .tema-escuro {
-  background-color: #140b1f; /* roxo bem escuro */
-  color: #e7dbff;           /* lilás claro */
+  background-color: #140b1f; 
+  color: #e7dbff;
 }
 
-/* Header roxo escuro degradê */
+/* Header no tema escuro */
 .tema-escuro header {
   background: linear-gradient(135deg, #2d0b42, #4a148c);
   color: #f3e5ff;
 }
 
-/* Rodapé lilás escuro */
+/* Rodapé */
 .tema-escuro footer {
   background-color: #1f1230;
   color: #e7dbff;
 }
 
-/* Caixas de conteúdo */
+/* Conteúdo */
 .tema-escuro .conteudo-scroll {
   background: #1a1028;
   border-color: #4b2b63;
@@ -290,7 +291,7 @@ footer {
 }
 
 .tema-escuro .bloco-item h2 {
-  color: #c7a4ff; /* lilás suave */
+  color: #c7a4ff;
 }
 
 /* Tabelas */
@@ -311,12 +312,13 @@ footer {
   background: #3b2452;
 }
 
-/* Toggle no modo escuro */
+/* Toggle no tema escuro */
 .tema-escuro .tema-toggle {
-  background: #6a1b9a; /* roxo mais suave */
-  box-shadow: 0 0 10px #9c27b0;
+  background: #7b1fa2;
+  box-shadow: 0 0 10px #c58de7;
 }
 
 .tema-escuro .tema-toggle .bolinha {
+  background: #d1b3ff;
   transform: translateX(27px);
 }
