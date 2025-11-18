@@ -6,15 +6,17 @@ body {
     background: linear-gradient(to right, #f3e5f5, #ffe0b2);
     color: #333;
     text-align: center;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Cabeçalho mais moderno */
+/* Cabeçalho */
 header {
     background: linear-gradient(135deg, #6a1b9a, #8e24aa);
     color: white;
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    position: relative;
 }
 
 header h2 {
@@ -43,7 +45,7 @@ header nav a:hover {
     color: #6a1b9a;
 }
 
-/* Conteúdo principal */
+/* Conteúdo */
 main {
     padding: 20px;
 }
@@ -62,7 +64,7 @@ footer {
     box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
 }
 
-/* Galeria de carros */
+/* Carros */
 .carros {
     display: flex;
     justify-content: center;
@@ -83,6 +85,7 @@ footer {
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
+/* Filiais */
 .filiais {
     display: flex;
     justify-content: center;
@@ -105,6 +108,7 @@ footer {
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
+/* Contato */
 .contato-form {
     max-width: 400px;
     margin: 20px auto 40px;
@@ -112,34 +116,33 @@ footer {
     flex-direction: column;
     gap: 15px;
     text-align: left;
-    color: #4a148c; /* roxo escuro para textos */
+    color: #4a148c;
 }
 
 .contato-form label {
     font-weight: bold;
-    color: #6a1b9a; /* roxo médio */
+    color: #6a1b9a;
 }
 
 .contato-form input,
 .contato-form textarea {
     padding: 10px;
-    border: 1px solid #dbaaff; /* roxo claro */
+    border: 1px solid #dbaaff;
     border-radius: 8px;
     font-size: 1em;
     width: 100%;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: border-color 0.3s;
 }
 
 .contato-form input:focus,
 .contato-form textarea:focus {
-    border-color: #ff9800; /* laranja vibrante */
+    border-color: #ff9800;
     outline: none;
 }
 
 .contato-form button {
-    background: #ab47bc; /* roxo vibrante do header */
+    background: #ab47bc;
     color: white;
     padding: 12px;
     border: none;
@@ -151,8 +154,10 @@ footer {
 }
 
 .contato-form button:hover {
-    background: #ff9800; /* laranja do header */
+    background: #ff9800;
 }
+
+/* Tabelas */
 .table-wrap {
   max-width: 100%;
   overflow-x: auto;
@@ -192,6 +197,8 @@ footer {
   text-align: center;
   padding: 10px;
 }
+
+/* Conteúdo da planilha */
 .conteudo-scroll {
   max-height: 500px;
   overflow-y: auto;
@@ -211,7 +218,7 @@ footer {
 .bloco-item img {
   display: block;
   margin: 12px auto;
-  max-width: 400px;   /* mantém o tamanho controlado */
+  max-width: 400px;
   width: 100%;
   height: auto;
   border-radius: 6px;
@@ -226,6 +233,8 @@ footer {
 .bloco-item p {
   margin: 6px 0;
 }
+
+/* Toggle */
 .tema-toggle {
   position: absolute;
   top: 15px;
@@ -248,17 +257,19 @@ footer {
   border-radius: 50%;
   transition: transform 0.25s;
 }
+
+/* Tema escuro */
 .tema-escuro {
   background-color: #0f1720;
   color: #e9eef5;
 }
 
 .tema-escuro header {
-  background-color: #0b1220;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
 }
 
 .tema-escuro footer {
-  background-color: #0b1220;
+  background-color: #111821;
   color: #e9eef5;
 }
 
