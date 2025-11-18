@@ -234,63 +234,89 @@ footer {
   margin: 6px 0;
 }
 
-/* Toggle */
+/* Toggle – versão roxa chamativa */
 .tema-toggle {
   position: absolute;
   top: 15px;
   right: 20px;
-  width: 50px;
-  height: 26px;
-  background: #ddd;
+  width: 55px;
+  height: 28px;
+  background: #9c27b0;          /* ROXO VIBRANTE */
   border-radius: 20px;
   cursor: pointer;
   padding: 3px;
   display: flex;
   align-items: center;
-  transition: background 0.25s;
+  transition: background 0.25s, box-shadow 0.25s;
+  box-shadow: 0 0 8px #ba68c8;   /* brilho lilás */
 }
 
 .tema-toggle .bolinha {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   background: white;
   border-radius: 50%;
-  transition: transform 0.25s;
+  transition: transform 0.25s, background 0.25s;
+  box-shadow: 0 0 6px rgba(255,255,255,0.8);
 }
-
-/* Tema escuro */
+/* Tema escuro harmônico */
 .tema-escuro {
-  background-color: #0f1720;
-  color: #e9eef5;
+  background-color: #140b1f; /* roxo bem escuro */
+  color: #e7dbff;           /* lilás claro */
 }
 
+/* Header roxo escuro degradê */
 .tema-escuro header {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  background: linear-gradient(135deg, #2d0b42, #4a148c);
+  color: #f3e5ff;
 }
 
+/* Rodapé lilás escuro */
 .tema-escuro footer {
-  background-color: #111821;
-  color: #e9eef5;
+  background-color: #1f1230;
+  color: #e7dbff;
 }
 
+/* Caixas de conteúdo */
 .tema-escuro .conteudo-scroll {
-  background: #111821;
-  border-color: #2a3645;
+  background: #1a1028;
+  border-color: #4b2b63;
 }
 
+/* Blocos */
 .tema-escuro .bloco-item {
-  border-color: #2a3645;
+  background: #221330;
+  border-color: #4b2b63;
 }
 
 .tema-escuro .bloco-item h2 {
-  color: #8db0ff;
+  color: #c7a4ff; /* lilás suave */
+}
+
+/* Tabelas */
+.tema-escuro .dados-planilha {
+  background: #1b1126;
+  color: #e7dbff;
+}
+
+.tema-escuro .dados-planilha th {
+  background: linear-gradient(90deg, #4a148c, #7b1fa2);
+}
+
+.tema-escuro .dados-planilha tr:nth-child(even) {
+  background: #2a1b3a;
+}
+
+.tema-escuro .dados-planilha tr:hover {
+  background: #3b2452;
 }
 
 /* Toggle no modo escuro */
 .tema-escuro .tema-toggle {
-  background: #374151;
+  background: #6a1b9a; /* roxo mais suave */
+  box-shadow: 0 0 10px #9c27b0;
 }
 
 .tema-escuro .tema-toggle .bolinha {
-  transform: translateX(24px);
+  transform: translateX(27px);
 }
