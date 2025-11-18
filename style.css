@@ -234,51 +234,50 @@ footer {
   margin: 6px 0;
 }
 
-/* 🔮 Toggle – versão roxa chamativa */
+/* Toggle – versão roxa chamativa */
 .tema-toggle {
   position: absolute;
   top: 15px;
   right: 20px;
   width: 55px;
   height: 28px;
-  background: #9c27b0;            /* roxo vibrante */
+  background: #9c27b0;          /* ROXO VIBRANTE */
   border-radius: 20px;
   cursor: pointer;
   padding: 3px;
   display: flex;
   align-items: center;
   transition: background 0.25s, box-shadow 0.25s;
-  box-shadow: 0 0 8px #ba68c8;     /* brilho lilás */
+  box-shadow: 0 0 8px #ba68c8;   /* brilho lilás */
 }
 
 .tema-toggle .bolinha {
   width: 22px;
   height: 22px;
-  background: #f3e5f5;            /* lilás claro */
+  background: white;
   border-radius: 50%;
   transition: transform 0.25s, background 0.25s;
   box-shadow: 0 0 6px rgba(255,255,255,0.8);
 }
-
-/* 🌙 Tema escuro harmônico */
+/* Tema escuro harmônico */
 .tema-escuro {
-  background-color: #140b1f; 
-  color: #e7dbff;
+  background-color: #140b1f; /* roxo bem escuro */
+  color: #e7dbff;           /* lilás claro */
 }
 
-/* Header no tema escuro */
+/* Header roxo escuro degradê */
 .tema-escuro header {
   background: linear-gradient(135deg, #2d0b42, #4a148c);
   color: #f3e5ff;
 }
 
-/* Rodapé */
+/* Rodapé lilás escuro */
 .tema-escuro footer {
   background-color: #1f1230;
   color: #e7dbff;
 }
 
-/* Conteúdo */
+/* Caixas de conteúdo */
 .tema-escuro .conteudo-scroll {
   background: #1a1028;
   border-color: #4b2b63;
@@ -291,7 +290,7 @@ footer {
 }
 
 .tema-escuro .bloco-item h2 {
-  color: #c7a4ff;
+  color: #c7a4ff; /* lilás suave */
 }
 
 /* Tabelas */
@@ -312,13 +311,12 @@ footer {
   background: #3b2452;
 }
 
-/* Toggle no tema escuro */
+/* Toggle no modo escuro */
 .tema-escuro .tema-toggle {
-  background: #7b1fa2;
-  box-shadow: 0 0 10px #c58de7;
+  background: #6a1b9a; /* roxo mais suave */
+  box-shadow: 0 0 10px #9c27b0;
 }
 
 .tema-escuro .tema-toggle .bolinha {
-  background: #d1b3ff;
   transform: translateX(27px);
-}
+} modifique esse codigo entao para deixar o botao roxo
