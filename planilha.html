@@ -10,13 +10,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #e6d0f7, #ffd9b3); /* roxo claro e laranja pastel */
-            color: #4a148c; /* roxo escuro */
+            background: linear-gradient(to right, #e6d0f7, #ffd9b3);
+            color: #4a148c;
             text-align: center;
+            transition: background 0.3s, color 0.3s;
         }
 
         header {
-            background: linear-gradient(135deg, #ab47bc, #ff9800); /* roxo para laranja */
+            background: linear-gradient(135deg, #ab47bc, #ff9800);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -35,12 +36,36 @@
             font-weight: bold;
             padding: 6px 12px;
             border-radius: 6px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: 0.3s;
         }
 
         nav a:hover {
             background-color: #ffd180;
-            color: #6a1b9a; /* roxo escuro */
+            color: #6a1b9a;
+        }
+
+        /* Botão do tema */
+        .tema-toggle {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            width: 50px;
+            height: 26px;
+            background: #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            transition: background 0.25s;
+        }
+
+        .tema-toggle .bolinha {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.25s;
         }
 
         main h1 {
@@ -76,7 +101,7 @@
         }
 
         .dados-planilha th {
-            background-color: #ab47bc; /* roxo */
+            background-color: #ab47bc;
             color: white;
         }
 
@@ -91,18 +116,75 @@
             color: #4a148c;
             box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
         }
+
+        /* ---------------- TEMA ESCURO ---------------- */
+        .tema-escuro {
+            background: #0f1720;
+            color: #e9eef5;
+        }
+
+        .tema-escuro header {
+            background: linear-gradient(135deg, #3b246b, #b45f00);
+        }
+
+        .tema-escuro footer {
+            background: #1c2530;
+            color: #ffffff;
+        }
+
+        .tema-escuro .dados-planilha {
+            background: #1a2330;
+            color: white;
+            border-color: #2a3645;
+        }
+
+        .tema-escuro .dados-planilha th {
+            background-color: #2a3645;
+            color: #8db0ff;
+        }
+
+        .tema-escuro .dados-planilha tr:nth-child(even) {
+            background-color: #111821;
+        }
+
+        .tema-escuro .dados-planilha td {
+            border-color: #2a3645;
+        }
+
+        .tema-escuro .info-msg {
+            color: #8db0ff;
+        }
+
+        .tema-escuro nav a {
+            color: #ffd180;
+        }
+
+        .tema-escuro .tema-toggle {
+            background: #374151;
+        }
+
+        .tema-escuro .tema-toggle .bolinha {
+            transform: translateX(24px);
+        }
     </style>
 </head>
 
 <body>
+
     <header>
         <h2>Rota dos Sonhos</h2>
+
         <nav>
             <a href="index.html">🏠 Início</a>
             <a href="filiais.html">🌄 Destinos</a>
             <a href="contato.html">📞 Contato</a>
             <a href="planilha.html" aria-current="page">📊 Planilha</a>
         </nav>
+
+        <!-- Botão do tema -->
+        <div id="tema-toggle" class="tema-toggle">
+            <div class="bolinha"></div>
+        </div>
     </header>
 
     <main>
@@ -114,58 +196,77 @@
     <footer>
         <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
     </footer>
-<script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKEwuOPEIZ5PueyfgHIRwJTTwPJAENjD7SROHI5J0g7We6t4Nwxz8HN_t_vickpy4X/exec";
-    const msg = document.getElementById('mensagem');
-    const wrap = document.getElementById('table-wrap');
 
-    async function carregar() {
-        msg.textContent = 'Carregando dados...';
-        wrap.innerHTML = '';
+    <script>
+        /* ---------------- TEMA ESCURO ---------------- */
+        const toggle = document.getElementById("tema-toggle");
+        const body = document.body;
 
-        try {
-            const res = await fetch(SCRIPT_URL);
-            const dados = await res.json();
+        let temaSalvo = localStorage.getItem("tema") || "claro";
+        if (temaSalvo === "escuro") body.classList.add("tema-escuro");
 
-            if (!dados.length) {
-                msg.textContent = 'Nenhum registro encontrado.';
-                return;
-            }
+        toggle.addEventListener("click", () => {
+            body.classList.toggle("tema-escuro");
+            const modo = body.classList.contains("tema-escuro") ? "escuro" : "claro";
+            localStorage.setItem("tema", modo);
+        });
 
-            msg.textContent = '';
-            const table = document.createElement('table');
-            table.className = 'dados-planilha';
+        /* ---------------- CARREGAR PLANILHA ---------------- */
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKEwuOPEIZ5PueyfgHIRwJTTwPJAENjD7SROHI5J0g7We6t4Nwxz8HN_t_vickpy4X/exec";
+        const msg = document.getElementById('mensagem');
+        const wrap = document.getElementById('table-wrap');
 
-            // Cabeçalhos
-            const thead = document.createElement('thead');
-            const trh = document.createElement('tr');
-            Object.keys(dados[0]).forEach(h => {
-                const th = document.createElement('th');
-                th.textContent = h;
-                trh.appendChild(th);
-            });
-            thead.appendChild(trh);
-            table.appendChild(thead);
+        async function carregar() {
+            msg.textContent = 'Carregando dados...';
+            wrap.innerHTML = '';
 
-            // Linhas de dados
-            const tbody = document.createElement('tbody');
-            dados.forEach(obj => {
-                const tr = document.createElement('tr');
-                Object.values(obj).forEach(v => {
-                    const td = document.createElement('td');
-                    td.textContent = v;
-                    tr.appendChild(td);
+            try {
+                const res = await fetch(SCRIPT_URL);
+                const dados = await res.json();
+
+                if (!dados.length) {
+                    msg.textContent = 'Nenhum registro encontrado.';
+                    return;
+                }
+
+                msg.textContent = '';
+                const table = document.createElement('table');
+                table.className = 'dados-planilha';
+
+                const thead = document.createElement('thead');
+                const trh = document.createElement('tr');
+
+                Object.keys(dados[0]).forEach(h => {
+                    const th = document.createElement('th');
+                    th.textContent = h;
+                    trh.appendChild(th);
                 });
-                tbody.appendChild(tr);
-            });
-            table.appendChild(tbody);
-            wrap.appendChild(table);
 
-        } catch (err) {
-            msg.textContent = 'Erro ao carregar: ' + err.message;
+                thead.appendChild(trh);
+                table.appendChild(thead);
+
+                const tbody = document.createElement('tbody');
+                dados.forEach(obj => {
+                    const tr = document.createElement('tr');
+                    Object.values(obj).forEach(v => {
+                        const td = document.createElement('td');
+                        td.textContent = v;
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(tbody);
+                wrap.appendChild(table);
+
+            } catch (err) {
+                msg.textContent = 'Erro ao carregar: ' + err.message;
+            }
         }
-    }
 
-    // Chama a função ao carregar a página
-    carregar();
-</script>
+        carregar();
+    </script>
+
+</body>
+
+</html>
