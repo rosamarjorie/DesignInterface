@@ -52,35 +52,6 @@
             font-size: 1.1em;
         }
 
-        .destinos {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .destinos img {
-            width: 300px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .destinos img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-        }
-
-        footer {
-            background-color: #ffd9b3;
-            padding: 15px;
-            font-size: 0.9em;
-            color: #4a148c;
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Área dos dados da planilha */
         .conteudo-scroll {
             max-width: 600px;
             margin: auto;
@@ -102,6 +73,17 @@
         .bloco-item h2 {
             color: #6a1b9a;
             margin-bottom: 10px;
+        }
+
+        .bloco-item a {
+            color: #6a1b9a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .bloco-item a:hover {
+            color: #ab47bc;
+            text-decoration: underline;
         }
 
         /* ---------- Botão Toggle ---------- */
@@ -130,40 +112,74 @@
 
         /* ---------- TEMA ESCURO ---------- */
         .tema-escuro {
-            background: #0f1720;
-            color: #e9eef5;
+            background: #120b1a;
+            color: #eddcff;
         }
 
         .tema-escuro header {
-            background: linear-gradient(135deg, #3b246b, #b45f00);
+            background: linear-gradient(135deg, #4b1e72, #d67a1a);
         }
 
         .tema-escuro footer {
-            background: #1c2530;
-            color: #ffffff;
+            background: #1a1130;
+            color: #f2e8ff;
+        }
+
+        .tema-escuro nav a {
+            color: #ffcf94;
+        }
+
+        .tema-escuro nav a:hover {
+            background-color: #ffcf94;
+            color: #4b1e72;
+        }
+
+        .tema-escuro main h1 {
+            color: #caa8ff;
+        }
+
+        .tema-escuro main p {
+            color: #e6d0f7;
         }
 
         .tema-escuro .conteudo-scroll {
-            background: #111821;
-            border-color: #2a3645;
+            background: #1c1430;
+            border-color: #3b2960;
         }
 
         .tema-escuro .bloco-item {
-            background: #1a2330;
-            border-color: #2a3645;
+            background: #1c1430;
+            border-color: #3b2960;
         }
 
         .tema-escuro .bloco-item h2 {
-            color: #8db0ff;
+            color: #caa8ff;
+        }
+
+        .tema-escuro .bloco-item a {
+            color: #caa8ff;
+        }
+
+        .tema-escuro .bloco-item a:hover {
+            color: #ab47bc;
         }
 
         /* Toggle no modo escuro */
         .tema-escuro .tema-toggle {
-            background: #374151;
+            background: #4d3b68;
         }
 
         .tema-escuro .tema-toggle .bolinha {
+            background: #ffb85c;
             transform: translateX(24px);
+        }
+
+        footer {
+            background-color: #ffd9b3;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #4a148c;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
@@ -224,7 +240,6 @@
                     descricao.textContent = item.Descrição || '';
                     bloco.appendChild(descricao);
 
-                    // imagens, vídeos e links
                     if (item.Url && item.Url.startsWith('http')) {
                         const youtubeRegex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
                         const match = item.Url.match(youtubeRegex);
@@ -236,16 +251,14 @@
                             iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
                             iframe.setAttribute("allowfullscreen", true);
                             bloco.appendChild(iframe);
-                        }
-                        else if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+                        } else if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
                             const img = document.createElement('img');
                             img.src = item.Url;
                             img.alt = item.Título;
                             img.style.width = "100%";
                             img.style.borderRadius = "8px";
                             bloco.appendChild(img);
-                        }
-                        else {
+                        } else {
                             const link = document.createElement('a');
                             link.href = item.Url;
                             link.textContent = "Ver mais";
@@ -272,7 +285,6 @@
 
         toggle.addEventListener("click", () => {
             body.classList.toggle("tema-escuro");
-
             const modo = body.classList.contains("tema-escuro") ? "escuro" : "claro";
             localStorage.setItem("tema", modo);
         });
