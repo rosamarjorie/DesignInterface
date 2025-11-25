@@ -117,53 +117,64 @@
             box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
         }
 
-        /* ---------------- TEMA ESCURO ---------------- */
+        /* ---------------------------------- */
+        /* ----------- NOVO TEMA ESCURO ----- */
+        /* ---------------------------------- */
+
         .tema-escuro {
-            background: #0f1720;
-            color: #e9eef5;
+            background: #120b1a;
+            color: #f2e8ff;
         }
 
         .tema-escuro header {
-            background: linear-gradient(135deg, #3b246b, #b45f00);
+            background: linear-gradient(135deg, #4b1e72, #d67a1a);
         }
 
         .tema-escuro footer {
-            background: #1c2530;
-            color: #ffffff;
-        }
-
-        .tema-escuro .dados-planilha {
-            background: #1a2330;
-            color: white;
-            border-color: #2a3645;
-        }
-
-        .tema-escuro .dados-planilha th {
-            background-color: #2a3645;
-            color: #8db0ff;
-        }
-
-        .tema-escuro .dados-planilha tr:nth-child(even) {
-            background-color: #111821;
-        }
-
-        .tema-escuro .dados-planilha td {
-            border-color: #2a3645;
-        }
-
-        .tema-escuro .info-msg {
-            color: #8db0ff;
+            background: #1a1130;
+            color: #f2e8ff;
         }
 
         .tema-escuro nav a {
-            color: #ffd180;
+            color: #ffcf94;
+        }
+
+        .tema-escuro nav a:hover {
+            background: #ffcf94;
+            color: #4b1e72;
+        }
+
+        .tema-escuro .info-msg {
+            color: #caa8ff;
+        }
+
+        /* Tabela */
+        .tema-escuro .dados-planilha {
+            background: #1c1430;
+            color: #f5eaff;
+            border-color: #3b2960;
+            box-shadow: 0 0 12px rgba(140, 90, 255, 0.25);
+        }
+
+        .tema-escuro .dados-planilha th {
+            background-color: #6a2ea8;
+            color: #ffd9a6;
+        }
+
+        .tema-escuro .dados-planilha tr:nth-child(even) {
+            background-color: #120a21;
+        }
+
+        .tema-escuro .dados-planilha td {
+            border-color: #3b2960;
         }
 
         .tema-escuro .tema-toggle {
-            background: #374151;
+            background: #4d3b68;
         }
 
         .tema-escuro .tema-toggle .bolinha {
+            background: #ffb85c;
             transform: translateX(24px);
         }
     </style>
@@ -198,7 +209,7 @@
     </footer>
 
     <script>
-        /* ---------------- TEMA ESCURO ---------------- */
+        /* -------------- TEMA ESCURO --------------- */
         const toggle = document.getElementById("tema-toggle");
         const body = document.body;
 
@@ -211,7 +222,7 @@
             localStorage.setItem("tema", modo);
         });
 
-        /* ---------------- CARREGAR PLANILHA ---------------- */
+        /* -------------- CARREGAR PLANILHA --------------- */
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKEwuOPEIZ5PueyfgHIRwJTTwPJAENjD7SROHI5J0g7We6t4Nwxz8HN_t_vickpy4X/exec";
         const msg = document.getElementById('mensagem');
         const wrap = document.getElementById('table-wrap');
