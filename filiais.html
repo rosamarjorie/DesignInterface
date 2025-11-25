@@ -102,37 +102,55 @@
             transition: transform 0.25s;
         }
 
-        /* ---------- TEMA ESCURO ---------- */
+        /* ----------------------------------------- */
+        /* ---------- NOVO TEMA ESCURO -------------- */
+        /* ----------------------------------------- */
+
         .tema-escuro {
-            background: #0f1720;
-            color: #e9eef5;
+            background: #120b1a; /* roxo muito escuro */
+            color: #eddcff; /* lilás claro */
         }
 
         .tema-escuro header {
-            background: linear-gradient(135deg, #3b246b, #b45f00);
+            background: linear-gradient(135deg, #4b1e72, #d67a1a);
         }
 
         .tema-escuro footer {
-            background: #1c2530;
-            color: #ffffff;
+            background: #1a1130;
+            color: #f2e8ff;
         }
 
         .tema-escuro .filial {
-            background: #1a2330;
-            color: #e9eef5;
-            border: 2px solid #2a3645;
+            background: #1c1430;
+            color: #eddcff;
+            border: 2px solid #3b2960;
+            box-shadow: 0 0 12px rgba(180, 120, 255, 0.25);
+        }
+
+        .tema-escuro .filial:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 160, 80, 0.45);
         }
 
         .tema-escuro main h1 {
-            color: #8db0ff;
+            color: #caa8ff;
         }
 
-        /* Toggle no modo escuro */
+        .tema-escuro nav a {
+            color: #ffcf94;
+        }
+
+        .tema-escuro nav a:hover {
+            background-color: #ffcf94;
+            color: #4b1e72;
+        }
+
         .tema-escuro .tema-toggle {
-            background: #374151;
+            background: #4d3b68;
         }
 
         .tema-escuro .tema-toggle .bolinha {
+            background: #ffb85c;
             transform: translateX(24px);
         }
     </style>
@@ -197,4 +215,5 @@
     </script>
 
 </body>
+
 </html>
