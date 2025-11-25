@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rota dos Sonhos - Contato</title>
+
   <style>
-    /* Reset básico */
     * {
       box-sizing: border-box;
     }
@@ -21,6 +21,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
@@ -28,11 +29,7 @@
       color: white;
       padding: 40px 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    }
-
-    header h2 {
-      margin: 0 0 15px;
-      font-weight: 700;
+      position: relative;
     }
 
     nav a {
@@ -42,7 +39,7 @@
       font-weight: bold;
       padding: 8px 14px;
       border-radius: 6px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: 0.3s ease;
       display: inline-block;
     }
 
@@ -67,7 +64,6 @@
       font-weight: 700;
     }
 
-    /* Estilo do formulário */
     .contato-form {
       background: rgba(255, 217, 179, 0.85);
       padding: 25px 30px;
@@ -91,15 +87,8 @@
       font-size: 1em;
       width: 100%;
       font-family: inherit;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s ease;
       resize: vertical;
-    }
-
-    .contato-form input:focus,
-    .contato-form textarea:focus {
-      border-color: #ff9800;
-      outline: none;
-      box-shadow: 0 0 8px 2px #ff9800aa;
     }
 
     .contato-form button {
@@ -111,7 +100,7 @@
       font-size: 1.15em;
       cursor: pointer;
       font-weight: 700;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s ease;
       margin-top: 10px;
     }
 
@@ -128,6 +117,70 @@
       box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
       text-align: center;
     }
+
+    /* BOTÃO DO TEMA */
+    .tema-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      width: 50px;
+      height: 26px;
+      background: #ddd;
+      border-radius: 20px;
+      cursor: pointer;
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      transition: background 0.25s;
+    }
+
+    .tema-toggle .bolinha {
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.25s;
+    }
+
+    /* TEMA ESCURO */
+    .tema-escuro {
+      background: #0f1720;
+      color: #e9eef5;
+    }
+
+    .tema-escuro header {
+      background: linear-gradient(135deg, #3b246b, #b45f00);
+    }
+
+    .tema-escuro footer {
+      background: #1c2530;
+      color: white;
+    }
+
+    .tema-escuro .contato-form {
+      background: #1a2330;
+      border: 2px solid #2a3645;
+      box-shadow: none;
+    }
+
+    .tema-escuro .contato-form label {
+      color: #8db0ff;
+    }
+
+    .tema-escuro .contato-form input,
+    .tema-escuro .contato-form textarea {
+      background: #111821;
+      color: white;
+      border-color: #2a3645;
+    }
+
+    .tema-escuro .tema-toggle {
+      background: #374151;
+    }
+
+    .tema-escuro .tema-toggle .bolinha {
+      transform: translateX(24px);
+    }
   </style>
 </head>
 
@@ -135,17 +188,27 @@
 
   <header>
     <h2>Rota dos Sonhos</h2>
+
     <nav>
       <a href="index.html">Início</a>
       <a href="filiais.html">Filiais</a>
       <a href="contato.html">Contato</a>
-      <a href="planilha.html" aria-current="page">Planilha</a>
+      <a href="planilha.html">Planilha</a>
     </nav>
+
+    <!-- BOTÃO DO TEMA -->
+    <div id="tema-toggle" class="tema-toggle">
+      <div class="bolinha"></div>
+    </div>
   </header>
 
   <main>
     <h1>Entre em Contato</h1>
-   <form class="contato-form" action="https://script.google.com/macros/s/AKfycbyv5Qptu6dDO1EBNncIgK2mrdnrisBBn9hXlBFyv5_-PDaMFEcEmRxoChatQEkkc5RnJQ/exec" method="POST">
+
+    <form class="contato-form"
+      action="https://script.google.com/macros/s/AKfycbyv5Qptu6dDO1EBNncIgK2mrdnrisBBn9hXlBFyv5_-PDaMFEcEmRxoChatQEkkc5RnJQ/exec"
+      method="POST">
+
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
@@ -169,6 +232,19 @@
     <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
   </footer>
 
-</body>
+  <script>
+    const toggle = document.getElementById("tema-toggle");
+    const body = document.body;
 
+    let temaSalvo = localStorage.getItem("tema") || "claro";
+    if (temaSalvo === "escuro") body.classList.add("tema-escuro");
+
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("tema-escuro");
+      const modo = body.classList.contains("tema-escuro") ? "escuro" : "claro";
+      localStorage.setItem("tema", modo);
+    });
+  </script>
+
+</body>
 </html>
