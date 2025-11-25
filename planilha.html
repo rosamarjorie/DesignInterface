@@ -69,13 +69,13 @@
         }
 
         main h1 {
-            color: #6a1b9a;
+            color: #6a1b9a; /* título lilás no tema claro */
             margin-top: 30px;
         }
 
         .info-msg {
             font-size: 1.2em;
-            color: #6a1b9a;
+            color: #6a1b9a; /* mensagem lilás no tema claro */
             margin-top: 20px;
         }
 
@@ -101,7 +101,7 @@
         }
 
         .dados-planilha th {
-            background-color: #ab47bc;
+            background-color: #ab47bc; /* cabeçalho lilás */
             color: white;
         }
 
@@ -117,10 +117,7 @@
             box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
         }
 
-        /* ---------------------------------- */
-        /* ----------- NOVO TEMA ESCURO ----- */
-        /* ---------------------------------- */
-
+        /* ---------------- TEMA ESCURO ---------------- */
         .tema-escuro {
             background: #120b1a;
             color: #f2e8ff;
@@ -140,15 +137,18 @@
         }
 
         .tema-escuro nav a:hover {
-            background: #ffcf94;
+            background-color: #ffcf94;
             color: #4b1e72;
         }
 
-        .tema-escuro .info-msg {
-            color: #caa8ff;
+        .tema-escuro main h1 {
+            color: #caa8ff; /* título lilás no tema escuro */
         }
 
-        /* Tabela */
+        .tema-escuro .info-msg {
+            color: #caa8ff; /* mensagem lilás no tema escuro */
+        }
+
         .tema-escuro .dados-planilha {
             background: #1c1430;
             color: #f5eaff;
@@ -209,7 +209,7 @@
     </footer>
 
     <script>
-        /* -------------- TEMA ESCURO --------------- */
+        /* ---------------- TEMA ---------------- */
         const toggle = document.getElementById("tema-toggle");
         const body = document.body;
 
@@ -222,7 +222,7 @@
             localStorage.setItem("tema", modo);
         });
 
-        /* -------------- CARREGAR PLANILHA --------------- */
+        /* ---------------- CARREGAR PLANILHA ---------------- */
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKEwuOPEIZ5PueyfgHIRwJTTwPJAENjD7SROHI5J0g7We6t4Nwxz8HN_t_vickpy4X/exec";
         const msg = document.getElementById('mensagem');
         const wrap = document.getElementById('table-wrap');
