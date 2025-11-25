@@ -4,34 +4,25 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title> Rota dos Sonhos - Filiais</title>
+    <title>Rota dos Sonhos - Filiais</title>
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #e6d0f7, #ffd9b3); /* roxo claro e laranja pastel */
-            color: #4a148c; /* roxo escuro */
+            background: linear-gradient(to right, #e6d0f7, #ffd9b3);
+            color: #4a148c;
             text-align: center;
+            transition: background 0.3s, color 0.3s;
         }
 
         header {
-            background: linear-gradient(135deg, #ab47bc, #ff9800); /* roxo para laranja */
+            background: linear-gradient(135deg, #ab47bc, #ff9800);
             color: white;
             padding: 60px 20px;
             position: relative;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        }
-
-        header h2,
-        header nav {
-            position: relative;
-            z-index: 1;
-            margin: 0;
-        }
-
-        nav {
-            margin-top: 10px;
         }
 
         nav a {
@@ -42,12 +33,11 @@
             padding: 6px 12px;
             border-radius: 6px;
             transition: background-color 0.3s, color 0.3s;
-            display: inline-block;
         }
 
         nav a:hover {
             background-color: #ffd180;
-            color: #6a1b9a; /* roxo escuro */
+            color: #6a1b9a;
         }
 
         main h1 {
@@ -87,34 +77,99 @@
             color: #4a148c;
             box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
         }
+
+        /* ---------- Botão Toggle ---------- */
+        .tema-toggle {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            width: 50px;
+            height: 26px;
+            background: #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            transition: background 0.25s;
+        }
+
+        .tema-toggle .bolinha {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.25s;
+        }
+
+        /* ---------- TEMA ESCURO ---------- */
+        .tema-escuro {
+            background: #0f1720;
+            color: #e9eef5;
+        }
+
+        .tema-escuro header {
+            background: linear-gradient(135deg, #3b246b, #b45f00);
+        }
+
+        .tema-escuro footer {
+            background: #1c2530;
+            color: #ffffff;
+        }
+
+        .tema-escuro .filial {
+            background: #1a2330;
+            color: #e9eef5;
+            border: 2px solid #2a3645;
+        }
+
+        .tema-escuro main h1 {
+            color: #8db0ff;
+        }
+
+        /* Toggle no modo escuro */
+        .tema-escuro .tema-toggle {
+            background: #374151;
+        }
+
+        .tema-escuro .tema-toggle .bolinha {
+            transform: translateX(24px);
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- Cabeçalho -->
     <header>
         <h2>Rota dos Sonhos</h2>
-        <nav> Esse pode ser o destino dos seus sonhos
+
+        <nav>
             <a href="index.html">Início</a>
             <a href="filiais.html">Filiais</a>
             <a href="contato.html">Contato</a>
-            <a href="planilha.html" aria-current="page">Planilha</a>
+            <a href="planilha.html">Planilha</a>
         </nav>
+
+        <!-- Botão de tema -->
+        <div id="tema-toggle" class="tema-toggle">
+            <div class="bolinha"></div>
+        </div>
     </header>
 
-    <!-- Conteúdo principal -->
     <main>
         <h1>Opções de destinos</h1>
+
         <div class="filiais">
             <div class="filial">
-                <h2>Ilhas Malvidas</h2>
+                <h2>Ilhas Maldivas</h2>
                 <p>Ásia - No meio do Oceano Índico</p>
             </div>
+
             <div class="filial">
-                <h2>Paris </h2>
-                <p>França </p>
+                <h2>Paris</h2>
+                <p>França</p>
             </div>
+
             <div class="filial">
                 <h2>Brasil</h2>
                 <p>Fernando de Noronha</p>
@@ -122,11 +177,24 @@
         </div>
     </main>
 
-    <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 Rota dos Sonhos - Todos os direitos reservados</p>
     </footer>
 
-</body>
+    <script>
+        // Tema com LocalStorage
+        const toggle = document.getElementById("tema-toggle");
+        const body = document.body;
 
+        let temaSalvo = localStorage.getItem("tema") || "claro";
+        if (temaSalvo === "escuro") body.classList.add("tema-escuro");
+
+        toggle.addEventListener("click", () => {
+            body.classList.toggle("tema-escuro");
+            const modo = body.classList.contains("tema-escuro") ? "escuro" : "claro";
+            localStorage.setItem("tema", modo);
+        });
+    </script>
+
+</body>
 </html>
